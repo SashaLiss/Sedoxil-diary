@@ -1,0 +1,2 @@
+For Sedoxil_diary program python-tabulate should be installed by pip install tabulate.
+You can find any documentation here: https://pypi.org/project/tabulate/
