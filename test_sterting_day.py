@@ -1,8 +1,8 @@
 import re
 from datetime import date
 
-
-#### TYPE DIFERENT INPUTS FOR TESTING.####
+#### A function to get an input from a user as a stertinf day - a part of sedoxil_diary program - here to test the inputs###
+#TYPE DIFERENT INPUTS FOR TESTING.
 
 
 today = date.today()
