@@ -1,7 +1,7 @@
 from datetime import date, timedelta, datetime
 import csv
 
-### A function to get an input from a user as a stertinf day - a part of sedoxil_diary program - here to test the inputs###
+### A function to get perorts unfilled by the user - a part of sedoxil_diary program - here to test the inputs###
 
 
 date_s = '2023/02/26'            #type different dates  and duration fo testing
