@@ -37,7 +37,7 @@ def main():
         with open("diary.csv") as f:
             list_of_diaries=[row for row in csv.DictReader(f)]
             starting_date, days_of_treatment = list_of_diaries[0]["starting_date"],int(list_of_diaries[0]["days_of_treatment"])
-            print (starting_date, days_of_treatment)
+            #print (starting_date, days_of_treatment)
             for daynote in list_of_diaries:
                 date_today = daynote["date_today"]
                 if date_today == today:
