@@ -149,8 +149,8 @@ def fill_for_theday(starting_date, date, days_of_treatment):
     print()
     Nday_of_treatment,days_of_treatment_left  = progress(starting_date, date_today, days_of_treatment)
     printreport = False
-    if days_of_treatment_left == 1:
-        print("Congrats! Today is yout last day of treatment and we will prill the report! :)")
+    if days_of_treatment_left == 0:
+        print("Congrats! Today is your last day of treatment and we will print the report! :)")
         printreport = True
     print()
     print (f"So, on {date_today} it's your {Nday_of_treatment} day of taking Sedoxil. You have {days_of_treatment_left} days left.\n")
@@ -330,14 +330,18 @@ def fill_empty(starting_date, days_of_treatment):
 
     #print(f'dates filled in diary - {dates}')
 
+
     start= datetime.strptime(starting_date,"%Y/%m/%d")  #converts the first day of treatment into timedate format as it comes as str.
 
-    list_of_dates_to_fill=[(start + timedelta(days = i)).strftime("%Y/%m/%d") for i in range( days_of_treatment)] # creates a list ofall dates during the
+    list_of_dates_to_fill=[(start + timedelta(days = i)).strftime("%Y/%m/%d") for i in range( days_of_treatment)] # creates a list of all dates during the
                                                                                                                    #treatment period in str format(.strftime("%Y/%m/%d"))
     #print(f'list_of_dates_to_fill {list_of_dates_to_fill}')
 
+
     gap_dates = [date for date in list_of_dates_to_fill if date not in dates] #creates the list af dates when the ovservations were not made.
+
     #print(f'gap_dates {gap_dates}')
+
 
     gap_reports=[{"date_today" : date, "starting_date":'-',"days_of_treatment": '-',"Nday_of_treatment":'-', "days_of_treatment_left":'-', "sleep_state": '-',
              "morning_state":'-', "morning_pill":'-', "second_pill_time":'-', "time_reason_for2pill":'-',"printreport": False} for date in gap_dates]
@@ -356,14 +360,17 @@ def print_report_for_a_doctor():
     """
 
     with open("diary.csv") as f:
-        reports = [row for row in csv.DictReader(f)]                                                        #gets the information for filled days
-    starting_date, days_of_treatment = reports[0]['starting_date'], reports[0]['days_of_treatment']     #retrieves the arguments for fill_empty function.
-    gap_reports= fill_empty(starting_date, days_of_treatment)                                           #creates missed reports.
-    wholereport = sorted((reports+gap_reports), key=lambda daynote: daynote["date_today"])              #combines reports together sorted by date.
-    #print (wholereport)
+        reports = [row for row in csv.DictReader(f)]  #gets the information for filled days
 
-    for daynote in  wholereport:                                                                        # writes a doctor report
-        with open ("doctor_report.csv", "w", newline='') as f:
+    starting_date, days_of_treatment = reports[0]['starting_date'], int(reports[0]['days_of_treatment'])     #retrieves the arguments for fill_empty function.
+    gap_reports= fill_empty(starting_date, days_of_treatment)  #creates missed reports.
+
+    wholereport = sorted((reports+gap_reports), key=lambda daynote: daynote["date_today"])              #combines reports together sorted by date.
+
+
+    with open ("doctor_report.csv", "w", newline='') as f:  # writes a doctor report
+        for daynote in  wholereport:
+            print(daynote)
             writer = csv.DictWriter(f, fieldnames=["date_today","starting_date","days_of_treatment","Nday_of_treatment","days_of_treatment_left",
                                               "sleep_state","morning_state","morning_pill","second_pill_time","time_reason_for2pill","printreport"])
             writer.writerow(daynote)
