@@ -370,11 +370,11 @@ def print_report_for_a_doctor():
 
     with open ("doctor_report.csv", "w", newline='') as f:  # writes a doctor report
         for daynote in  wholereport:
-            print(daynote)
+            #print(daynote)
             writer = csv.DictWriter(f, fieldnames=["date_today","starting_date","days_of_treatment","Nday_of_treatment","days_of_treatment_left",
                                               "sleep_state","morning_state","morning_pill","second_pill_time","time_reason_for2pill","printreport"])
             writer.writerow(daynote)
-
+    print(" Now you can see your treatment report in doctor_report.csv file. Thank you!")
 def summary(newdaynote):
     """
     Shows in a simple table the information that was just provided and gives the user the chance to change it.
