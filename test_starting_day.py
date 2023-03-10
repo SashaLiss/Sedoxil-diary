@@ -13,18 +13,18 @@ while True:  # getting from a user a date of starting the treatment.
         matches = re.search(r"^([0-9]{1,2})\D*([0-9]{1,2}$)", starting_date)
         if matches:
             if (int(matches.group(1))>12) or (int(matches.group(2))> 31):
-                raise ValueError
+                raise TypeError
             starting_date = ('2023/' + str(matches.group(1)) + '/' + str(matches.group(2)))
 
             if starting_date > today:
-                raise TypeError
+                raise ValueError
         else:
-            raise ValueError
+            raise TypeError
 
-    except ValueError:
+    except TypeError:
         print()
         print("The date is not recognized, please use the decimal numbers up to 12 for months and up to 31 for days \n")
-    except TypeError:
+    except ValueError:
         print()
         print("You wrote the date in the future as the starting date, but you can't start the diary about the future! :) Sorry \n")
     else:
