@@ -1,15 +1,6 @@
 import re
 from datetime import date
 
-#### A function to get an input from a user as a stertinf day - a part of sedoxil_diary program - here to test the inputs###
-#TYPE DIFERENT INPUTS FOR TESTING.
-
-
-today = date.today()
-today =today.strftime("%Y/%m/%d")
-import re
-from datetime import date
-
 
 #### TYPE DIFERENT INPUTS FOR TESTING.####
 
@@ -40,6 +31,4 @@ while True:  # getting from a user a date of starting the treatment.
            print("You wrote the date in the future as the starting date, but you can't start the diary about the future! :) Sorry \n")
     else:
         break
-
-
 print (starting_date)
