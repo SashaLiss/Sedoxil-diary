@@ -87,7 +87,7 @@ def get_starting_day():
     while True:  # getting from a user a date of starting the treatment.
         try:
             starting_date = input("What was the date you started to take Sedoxil?(MM/DD): 2023/ ").strip()
-            matches = re.search(r"^([0-9]{1,2})\D+([0-9]{1,2}$)", starting_date)
+            matches = re.search(r"^([0-9]{1,2})\D*([0-9]{1,2}$)", starting_date)
             if matches:
                 if (int(matches.group(1))>12) or (int(matches.group(2))> 31):
                     raise TypeError
