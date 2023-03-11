@@ -1,21 +1,21 @@
-date_today,starting_date,days_of_treatment,Nday_of_treatment,days_of_treatment_left,sleep_state,morning_state,morning_pill,second_pill_time,time_reason_for2pill,printreport
-2023/02/09,2023/02/09,30,1,30,Just couple of hours,Tired,YES,AFTERNOON,I take it for a first time,False
-2023/02/10,2023/02/09,30,2,29,Was good but not enough,Rested,YES,EVENING,I was surprised how good it influenced my sleep,False
-2023/02/11,2023/02/09,30,3,28,Woke up several times during the night,Tired,YES,EVENING,My son is ill again so I just wont a good sleep,False
-2023/02/12,2023/02/09,30,4,27,Was good but not enough,Sleepyy,YES,EVENING, the mood is ok,sleepy,False
-2023/02/13,2023/02/09,30,5,26,Was good but not enough,Sleepy,YES,AFTERNOON, Because I feel sleepy, but the mood is good,False
-2023/02/14,2023/02/09,30,6,25,Was good but not enough,Sleepy,YES,AFTERNOON, Same reason, I am very sleepy. And my mood is strange,False
-2023/02/17,2023/02/09,30,9,22,Sleeping was restless,Sleepy,YES,EVENINGN, I want to came back to good sleeping,False
-2023/02/20,2023/02/09,30,12,19,Was good but not enough,Sleepy,YES,EVENING, My mood is strange, I don't feel worries but I don't feel a thing,False
-2023/02/24,2023/02/09,30,15,15,Was good but not enough,Sleepy,YES,EVENING, I feel sleepy and dot fell any joy of life,False
-2023/02/26,2023/02/09,30,17,13,Sleeping was restless,Sleepy,YES,EVENINGN,  Last days I am working on my project in a good temp,False
-2023/02/27,2023/02/09,30,18,12,Was good but not enough,Sleepy,YES,AFTERNOON, Because I am sleepy again but the brain works really good,False
-2023/02/28,2023/02/09,30,19,11,Sleeping was restless,Tired,YES,AFTERNOON, I dont feel any good emotions,False
-2023/03/01,2023/02/09,30,20,10,Was good but not enough,Full of energy,YES,AFTERNOON,I want to watch the effect,False
-2023/03/02,2023/02/09,30,21,9,Sleeping was restless,Sleepy,YES,EVENING,I took it yerstedey at afternoon but my mood didnt become better so may be the sleep will be better if I,False
-2023/03/03,2023/02/09,30,23,7,Was good but not enough,Sleepy,YES,EVENING,want to sleep good,False
-2023/03/04,2023/02/09,30,24,6,Was good but not enough,Sleepy,YES,EVENING,i wont be at home,False
-2023/03/07,2023/02/09,30,27,3,Woke up several times during the night,Sleepy,No,EVENING,I want to see the difference of not taking the pill during the day,False
-2023/03/08,2023/02/09,30,28,2,Woke up several times during the night,Calm,No,EVENING,i feel that sleep bacame worse but i am not sleepy and my mood is better- I feel!,False
-2023/03/09,2023/02/09,30,29,1,Was good but not enough,Calm,No,EVENING,Want to keep good sleep but the mood is ok w/o morn. pill,False
-2023/03/10,2023/02/09,30,30,0,Was good but not enough,Full of energy,No,EVENING,I sleep good with the pill,True
+date_today,starting_date,days_of_treatment,days_of_treatment_left,sleep_state,morning_state,morning_pill,second_pill_time,time_reason_for2pill,printreport
+2023/02/09,2023/02/09,30,30,Just couple of hours,Tired,YES,AFTERNOON,I take it for a first time,False
+2023/02/10,2023/02/09,30,29,Was good but not enough,Rested,YES,EVENING,I was surprised how good it influenced my sleep,False
+2023/02/11,2023/02/09,30,28,Woke up several times during the night,Tired,YES,EVENING,My son is ill again so I just wont a good sleep,False
+2023/02/12,2023/02/09,30,27,Was good but not enough,Sleepyy,YES,EVENING, the mood is ok,sleepy,False
+2023/02/13,2023/02/09,30,26,Was good but not enough,Sleepy,YES,AFTERNOON, Because I feel sleepy, but the mood is good,False
+2023/02/14,2023/02/09,30,25,Was good but not enough,Sleepy,YES,AFTERNOON, Same reason, I am very sleepy. And my mood is strange,False
+2023/02/17,2023/02/09,30,22,Sleeping was restless,Sleepy,YES,EVENINGN, I want to came back to good sleeping,False
+2023/02/20,2023/02/09,30,19,Was good but not enough,Sleepy,YES,EVENING, My mood is strange, I don't feel worries but I don't feel a thing,False
+2023/02/24,2023/02/09,30,15,Was good but not enough,Sleepy,YES,EVENING, I feel sleepy and dot fell any joy of life,False
+2023/02/26,2023/02/09,30,13,Sleeping was restless,Sleepy,YES,EVENINGN,  Last days I am working on my project in a good temp,False
+2023/02/27,2023/02/09,30,12,Was good but not enough,Sleepy,YES,AFTERNOON, Because I am sleepy again but the brain works really good,False
+2023/02/28,2023/02/09,30,11,Sleeping was restless,Tired,YES,AFTERNOON, I dont feel any good emotions,False
+2023/03/01,2023/02/09,30,10,Was good but not enough,Full of energy,YES,AFTERNOON,I want to watch the effect,False
+2023/03/02,2023/02/09,30,9,Sleeping was restless,Sleepy,YES,EVENING,I took it yerstedey at afternoon but my mood didnt become better so may be the sleep will be better if I,False
+2023/03/03,2023/02/09,30,7,Was good but not enough,Sleepy,YES,EVENING,want to sleep good,False
+2023/03/04,2023/02/09,30,6,Was good but not enough,Sleepy,YES,EVENING,i wont be at home,False
+2023/03/07,2023/02/09,30,3,Woke up several times during the night,Sleepy,No,EVENING,I want to see the difference of not taking the pill during the day,False
+2023/03/08,2023/02/09,30,2,Woke up several times during the night,Calm,No,EVENING,i feel that sleep bacame worse but i am not sleepy and my mood is better- I feel!,False
+2023/03/09,2023/02/09,30,1,Was good but not enough,Calm,No,EVENING,Want to keep good sleep but the mood is ok w/o morn. pill,False
+2023/03/10,2023/02/09,30,30,Was good but not enough,Full of energy,No,EVENING,I sleep good with the pill,True
