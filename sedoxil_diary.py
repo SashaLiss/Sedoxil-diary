@@ -29,6 +29,7 @@ def main():
         days_of_treatment = get_days_of_treatment()
         starting_date = get_starting_day()
         if progress(starting_date, today, days_of_treatment) == False :
+            print("Please fix the info!\n")
             days_of_treatment = get_days_of_treatment()
             starting_date = get_starting_day()
         else:
@@ -46,6 +47,7 @@ def main():
 
 
     newdaynote = fill_for_theday(starting_date, today, days_of_treatment)
+
     fill_daynote(newdaynote)
 
 def get_days_of_treatment():
@@ -130,9 +132,7 @@ def progress(starting_date, today, days_of_treatment):
     if (Nday_of_treatment > days_of_treatment):
         print ("It looks like you already ended up the treatment "
              "according to the starting day or course duration shown. Please check your data\n")
-        print(f"Acording to your information you started the course on {starting_date} and"
-              "your treatment duration is {days_of_treatment} not {course_duration}!\n")
-        print("Please fix the info!\n")
+        print(f"You started the course on {starting_date} and your treatment duration is {days_of_treatment}  days!\n")
         return False
 
     days_of_treatment_left = days_of_treatment - Nday_of_treatment
@@ -151,133 +151,142 @@ def fill_for_theday(starting_date, date, days_of_treatment):
     date_today = date
     print()
     print(f'Hello! today is {date_today}')
-    Nday_of_treatment,days_of_treatment_left  = progress(starting_date, date_today, days_of_treatment)
-    printreport = False
-    if days_of_treatment_left == 0:
-        print("Congrats! Today is your last day of treatment and we will print the report! :)")
-        printreport = True
-    print()
-    print (f"So, on {date_today} it's your {Nday_of_treatment} day of taking Sedoxil. You have {days_of_treatment_left} days left.\n")
+    if progress(starting_date, today, days_of_treatment) == False :
+        get_report = input("Did you get your final report already? type 'Yes' or 'No': " ).strip().upper()
+        if get_report in ('YES', 'Y'):
+            print("Ok. Don't forget to take it to your doctor :)")
+        else:
+            print_report_for_a_doctor()
+        sys.exit(0)
 
-    print("HOW WAS YOUR SLEEP?")
-    print("-------------------")
-    sleep_report={
-        "A" : ("Didn't sleep"),
-        "B" : ("Woke up several times during the night"),
-        "C" : ("Just couple of hours"),
-        "D" : ("Sleeping was restless"),
-        "E" : ("Was good but not enough")
-    }
-    for key,value in sleep_report.items():
-        print (f"{key} - {value}")
-    print()
-    while True:  # getting from a user his feedback about night sleep.
-        try:
-            s_r_letter = input("Choose and print the key-letter to indicate your sleep: ").strip().upper()
-            if s_r_letter in ['A', 'B', 'C', 'D', 'E']:
-                sleep_state = sleep_report[s_r_letter]
+    else:
+        Nday_of_treatment,days_of_treatment_left  = progress(starting_date, date_today, days_of_treatment)
+        printreport = False
+        if days_of_treatment_left == 0:
+            print("Congrats! Today is your last day of treatment and we will print the report! :)")
+            printreport = True
+        print()
+        print (f"So, on {date_today} it's your {Nday_of_treatment} day of taking Sedoxil. You have {days_of_treatment_left} days left.\n")
+
+        print("HOW WAS YOUR SLEEP?")
+        print("-------------------")
+        sleep_report={
+            "A" : ("Didn't sleep"),
+            "B" : ("Woke up several times during the night"),
+            "C" : ("Just couple of hours"),
+            "D" : ("Sleeping was restless"),
+            "E" : ("Was good but not enough")
+       }
+        for key,value in sleep_report.items():
+            print (f"{key} - {value}")
+        print()
+        while True:  # getting from a user his feedback about night sleep.
+            try:
+                s_r_letter = input("Choose and print the key-letter to indicate your sleep: ").strip().upper()
+                if s_r_letter in ['A', 'B', 'C', 'D', 'E']:
+                    sleep_state = sleep_report[s_r_letter]
+                    print()
+                else:
+                    raise ValueError
+            except ValueError:
+                 print("You chose the option that doesnt exist. Try again, please: ")
+            else:
+                break
+
+        print('HOW DID YOU FIND YOURSELF IN THE MORNING?')
+        print("-----------------------------------------")
+        morningstate={
+            "T": "Tired",
+            "D": "Depressed",
+            "S": "Sleepy",
+            "R": "Rested",
+            "F": "Full of energy",
+            "C": "Calm",
+            "U": "Uneasy",
+            "A": "Aloof"
+        }
+        for key,value in morningstate.items():
+            print (f"{key} - {value}")
+        print()
+
+        while True:  # getting from a user his feedback about his morning experience.
+            try:
+                morst_letter = input("Choose and print the letter to indicate your state in the morning: ").strip().upper()
+                if morst_letter in ['T', 'D', 'S', 'R', 'F','C','U','A']:
+                    morning_state = morningstate[morst_letter]
+                    print()
+                else:
+                    raise ValueError
+            except ValueError:
+                print("You chose the option that doesnt exist. Try again, please: ")
                 print()
             else:
-                raise ValueError
-        except ValueError:
-            print("You chose the option that doesnt exist. Try again, please: ")
-        else:
-            break
+                break
 
-    print('HOW DID YOU FIND YOURSELF IN THE MORNING?')
-    print("-----------------------------------------")
-    morningstate={
-        "T": "Tired",
-        "D": "Depressed",
-        "S": "Sleepy",
-        "R": "Rested",
-        "F": "Full of energy",
-        "C": "Calm",
-        "U": "Uneasy",
-        "A": "Aloof"
-    }
-    for key,value in morningstate.items():
-        print (f"{key} - {value}")
-    print()
+        while True:
+            try:
+                morning_pill = input("Did you take the morning pill? type 'Yes' or 'No': " ).strip().upper()
+                print()
+                if  morning_pill in ('Y', 'YES'):
+                    morning_pill = 'YES'
+                elif morning_pill in ('N', 'No'):
+                    morning_pill = 'No'
+                else:
+                    raise ValueError
 
-    while True:  # getting from a user his feedback about his morning experience.
-        try:
-            morst_letter = input("Choose and print the letter to indicate your state in the morning: ").strip().upper()
-            if morst_letter in ['T', 'D', 'S', 'R', 'F','C','U','A']:
-                morning_state = morningstate[morst_letter]
+                second_pill_time = input("When do you decide to take the second pill? type 'A' for afternoon  and 'E' for evening: ").strip().upper()
+                print()
+                if second_pill_time in ('A', 'AFTERNOON'):
+                    second_pill_time = 'AFTERNOON'
+                elif  second_pill_time in ('E', 'EVENING'):
+                    second_pill_time = 'EVENING'
+
+                else:
+                    raise TypeError
+
+            except ValueError:
+               print("You chose the option that doesnt exist. Try again, please: ")
+               print()
+            except TypeError:
+                print("You chose the option that doesnt exist. Try again, please: ")
                 print()
             else:
-                raise ValueError
-        except ValueError:
-            print("You chose the option that doesnt exist. Try again, please: ")
-            print()
-        else:
-            break
+                break
 
-    while True:
-        try:
-            morning_pill = input("Did you take the morning pill? type 'Yes' or 'No': " ).strip().upper()
-            print()
-            if  morning_pill in ('Y', 'YES'):
-                morning_pill = 'YES'
-            elif morning_pill in ('N', 'No'):
-                morning_pill = 'No'
+        time_reason_for2pill = input('Why do you decide the take second pill this time: ? ').strip()
+        print()
+
+
+        newdaynote = {
+            "date_today":date_today,
+            "starting_date":starting_date,
+            "days_of_treatment":days_of_treatment,
+            "Nday_of_treatment":Nday_of_treatment,
+            "days_of_treatment_left":days_of_treatment_left,
+            "sleep_state":sleep_state,
+            "morning_state":morning_state,
+            "morning_pill":morning_pill,
+            "second_pill_time": second_pill_time,
+            "time_reason_for2pill":time_reason_for2pill,
+            "printreport": printreport
+        }
+
+        while True:
+            try:
+                check_the_note = input('Do you want to see the summary for this day? Type Y or N: ').strip().upper()
+                print()
+                if  check_the_note in ('Y', 'Yes', 'Ok'):
+                    summary(newdaynote)
+                elif check_the_note in ('N', 'NO', 'NOPE'):
+                    print("ok")
+                else:
+                    raise ValueError
+            except ValueError:
+                print ("You typed smth stupid :) Try again please.")
             else:
-                raise ValueError
+                break
 
-            second_pill_time = input("When do you decide to take the second pill? type 'A' for afternoon  and 'E' for evening: ").strip().upper()
-            print()
-            if second_pill_time in ('A', 'AFTERNOON'):
-                second_pill_time = 'AFTERNOON'
-            elif  second_pill_time in ('E', 'EVENING'):
-                 second_pill_time = 'EVENING'
-
-            else:
-                raise TypeError
-
-        except ValueError:
-            print("You chose the option that doesnt exist. Try again, please: ")
-            print()
-        except TypeError:
-            print("You chose the option that doesnt exist. Try again, please: ")
-            print()
-        else:
-            break
-
-    time_reason_for2pill = input('Why do you decide the take second pill this time: ? ').strip()
-    print()
-
-
-    newdaynote = {
-        "date_today":date_today,
-        "starting_date":starting_date,
-        "days_of_treatment":days_of_treatment,
-        "Nday_of_treatment":Nday_of_treatment,
-        "days_of_treatment_left":days_of_treatment_left,
-        "sleep_state":sleep_state,
-        "morning_state":morning_state,
-        "morning_pill":morning_pill,
-        "second_pill_time": second_pill_time,
-        "time_reason_for2pill":time_reason_for2pill,
-        "printreport": printreport
-    }
-
-    while True:
-        try:
-            check_the_note = input('Do you want to see the summary for this day? Type Y or N: ').strip().upper()
-            print()
-            if  check_the_note in ('Y', 'Yes', 'Ok'):
-                summary(newdaynote)
-            elif check_the_note in ('N', 'NO', 'NOPE'):
-                 print("ok")
-            else:
-                raise ValueError
-        except ValueError:
-            print ("You typed smth stupid :) Try again please.")
-        else:
-            break
-
-    return (newdaynote)
+        return (newdaynote)
 
 def fill_daynote(newdaynote):
     """
