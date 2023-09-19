@@ -142,10 +142,10 @@ def fill_for_theday(starting_date, date, days_of_treatment):
     """
     Provides a user a questionnaire to fill the day observations and saves it in a dictionary.
 
-    :param n: Number of times to meow
-    :type n: int
+    :param n: starting date of treatment, date today, days of treatment
+    :type n: str, str, int
     :raise ValueError: If the user input is not in the range of the expected response
-    :return: A string of n meows, one per line
+    :return: An observation for the day
     :rtype: dictionary
     """
     date_today = date
@@ -282,7 +282,7 @@ def fill_for_theday(starting_date, date, days_of_treatment):
                 else:
                     raise ValueError
             except ValueError:
-                print ("You typed smth stupid :) Try again please.")
+                print ("You typed smth strange :) Try again please.")
             else:
                 break
 
