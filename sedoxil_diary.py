@@ -119,11 +119,11 @@ def progress(starting_date, today, days_of_treatment):
     """
     Gets a progress in the timeline of treatment.
 
-    :param n: the day of starting the treatment and duration
-    :type n: str and int
+    :param n: the day of starting the treatment, the date today and duration of treatment
+    :type n: str, str and int
     :raise TypeError: If n is not a str or an int
-    :return: the day of treatment and how many day left.
-    :rtype: int or False
+    :return: the day of treatment and how many day left or indicate the inconsistency of data.
+    :rtype: tuple of int or False
     """
     start_date = datetime.strptime((starting_date),"%Y/%m/%d")
     now_date = datetime.strptime(today,"%Y/%m/%d")
