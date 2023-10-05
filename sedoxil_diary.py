@@ -253,7 +253,7 @@ def fill_for_theday(starting_date, date, days_of_treatment):
             else:
                 break
 
-        time_reason_for2pill = input('Why do you decide the take second pill this time: ? ').strip()
+        time_reason_for2pill = input('Why do you decide the take second pill at this time: ? ').strip()
         print()
 
 
