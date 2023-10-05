@@ -1,5 +1,2 @@
 date_today,starting_date,days_of_treatment,Nday_of_treatment,days_of_treatment_left,sleep_state,morning_state,morning_pill,second_pill_time,time_reason_for2pill,printreport
-2023/03/09,2023/03/09,10,1,9,Just couple of hours,Depressed,YES,EVENING, It my first time, False
-2023/03/11,2023/03/09,10,3,7,Was good but not enough,Sleepy,YES,AFTERNOON,I don't want to be so sleepy,False
-2023/03/17,2023/03/09,10,9,1,Was good but not enough,Calm,YES,EVENING,I have good sleep and my mood is relatively calm.,False
 
